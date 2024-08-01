@@ -74,11 +74,11 @@ def main():
     st.write("Compare the energy use per capita between two countries.")
     
     # Load the data
-    data_url = 'https://github.com/cthomp99/Project/blob/main/country_tracker.csv'
+    data_url = 'https://raw.githubusercontent.com/cthomp99/Project/main/country_tracker.csv'
     data = load_data(data_url)
     
     # Load the country codes
-    codes_url = 'https://github.com/cthomp99/Project/blob/main/country_codes.csv'
+    codes_url = 'https://raw.githubusercontent.com/cthomp99/Project/main/country_codes.csv'
     country_to_code = load_country_codes(codes_url)
 
     if data is not None and country_to_code:
