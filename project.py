@@ -70,7 +70,7 @@ def compare_energy_use(data, country1, country2):
     return comparison_sentence, flags_count, larger_flag_country, smaller_flag_country
 
 def main():
-    st.title("Energy Use Growth Rate Analysis")
+    st.title("Global Energy Use per Capita")
     st.write("Compare the energy use per capita between two countries.")
     
     # Load the data
