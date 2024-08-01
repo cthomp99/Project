@@ -1,27 +1,27 @@
 import pandas as pd
 import streamlit as st
 
-def load_data(file_path=None):
+def load_data(file_url=None):
     """
     Load data from a CSV file.
     """
     try:
-        data = pd.read_csv(file_path)
+        data = pd.read_csv(file_url)
     except FileNotFoundError:
-        st.error(f"The file {file_path} was not found.")
+        st.error(f"The file {file_url} was not found.")
         data = None
     return data
 
-def load_country_codes(file_path):
+def load_country_codes(file_url):
     """
     Load country codes from a CSV file.
     """
     try:
-        codes = pd.read_csv(file_path)
+        codes = pd.read_csv(file_url)
         codes.columns = codes.columns.str.strip()  # Remove any extra spaces from column names
         code_dict = dict(zip(codes['Country'].str.strip(), codes['Code'].str.strip()))
     except FileNotFoundError:
-        st.error(f"The file {file_path} was not found.")
+        st.error(f"The file {file_url} was not found.")
         code_dict = {}
     except KeyError as e:
         st.error(f"Key error: {e}. Available columns: {codes.columns.tolist()}")
@@ -74,12 +74,12 @@ def main():
     st.write("Compare the energy use per capita between two countries.")
     
     # Load the data
-    data_path = r'C:\Users\callu\python_apps\project\country_tracker.csv'
-    data = load_data(data_path)
+    data_url = 'https://github.com/cthomp99/Project/blob/main/country_tracker.csv'
+    data = load_data(data_url)
     
     # Load the country codes
-    codes_path = r'C:\Users\callu\python_apps\project\country_codes.csv'
-    country_to_code = load_country_codes(codes_path)
+    codes_url = 'https://github.com/cthomp99/Project/blob/main/country_codes.csv'
+    country_to_code = load_country_codes(codes_url)
 
     if data is not None and country_to_code:
         # Get list of countries
