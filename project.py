@@ -102,7 +102,7 @@ def main():
                 with col:
                     st.markdown(f"### {country}", unsafe_allow_html=True)
                     energy_use = get_energy_use_2022(data, country)
-                    st.markdown(f"**Energy Use in 2022: {energy_use} per capita**", unsafe_allow_html=True)
+                    st.markdown(f"**Energy Use in 2022: {energy_use} Gj per capita**", unsafe_allow_html=True)
                     growth_rate = calculate_growth_rate(data, country)
                     st.markdown(f"**Growth Rate: {growth_rate}%**", unsafe_allow_html=True)
                     # Display flag with custom size
